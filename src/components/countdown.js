@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Countdown extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ export default class Countdown extends Component {
     this.setState({ secondsRemaining: this.state.secondsRemaining - 1 });
     if (this.state.secondsRemaining <= 0) {
       clearInterval(this.interval);
+      this.props.finishGame();
     }
   }
   componentDidMount() {
@@ -22,7 +24,11 @@ export default class Countdown extends Component {
   }
 
   addSeconds() {
-    this.setState({ secondsRemaining: this.state.secondsRemaining + 10 });
+    this.setState({ secondsRemaining: this.state.secondsRemaining + 5 });
+  }
+
+  subtractSeconds() {
+    this.setState({ secondsRemaining: this.state.secondsRemaining - 5 });
   }
 
   render() {
