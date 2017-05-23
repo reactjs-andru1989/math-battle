@@ -15,9 +15,16 @@ class MathOperation extends Component {
 
     return (
       <div>
-        {this.props.operation.operation}
-        <button onClick={() => this.props.checkOperation(true, this.props.operation)}>Verdadero</button>
-        <button onClick={() => this.props.checkOperation(false, this.props.operation)}>Falso</button>
+        <button onClick={this.props.randomOperation}>Random</button>
+        {this.props.operation.message}
+        <button
+          onClick={() => this.props.checkOperation(true, this.props)}>
+          Verdadero
+        </button>
+        <button
+          onClick={() => this.props.checkOperation(false, this.props)}>
+          Falso
+        </button>
       </div>
     );
   }

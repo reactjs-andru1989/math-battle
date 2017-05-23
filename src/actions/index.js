@@ -8,10 +8,14 @@ export function randomOperation() {
   };
 }
 
-export function checkOperation(answer, operation) {
+export function checkOperation(answer, { operation, addSeconds, subtractSeconds, addScore, randomOperation }) {
   return {
-    type:    CHECKING,
+    type: CHECKING,
     payload: operation,
-    answer
+    answer,
+    addSeconds,
+    subtractSeconds,
+    addScore,
+    randomOperation
   };
 }
