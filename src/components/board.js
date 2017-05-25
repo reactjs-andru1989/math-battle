@@ -7,7 +7,7 @@ class Board extends Component {
   constructor(props) {
     super(props)
     this.state = ({
-      secondsRemaining: 20,
+      secondsRemaining: 10,
       score: 0
     })
   }
@@ -25,11 +25,21 @@ class Board extends Component {
   }
 
   addSeconds() {
-    this.setState({ secondsRemaining: this.state.secondsRemaining + 5 });
+    const maxSecondsRemaining = 20;
+    let secondsToAdd = 5;
+    let nextSecondsRemaining = this.state.secondsRemaining + secondsToAdd
+    if (nextSecondsRemaining > 20) {
+      secondsToAdd = maxSecondsRemaining - this.state.secondsRemaining;
+      this.setState({ secondsRemaining: this.state.secondsRemaining + secondsToAdd });
+    } else {
+      this.setState({ secondsRemaining: this.state.secondsRemaining + secondsToAdd });
+    }
   }
 
   subtractSeconds() {
-    this.setState({ secondsRemaining: this.state.secondsRemaining - 5 });
+    const secondsToSubtract = 6;
+    let seconds = this.state.secondsRemaining >= secondsToSubtract ? secondsToSubtract : this.state.secondsRemaining
+    this.setState({ secondsRemaining: this.state.secondsRemaining - seconds });
   }
 
   addScore() {
@@ -49,6 +59,11 @@ class Board extends Component {
           addSeconds      = {() => this.addSeconds()}
           subtractSeconds = {() => this.subtractSeconds()}
           addScore        = {() => this.addScore()} />
+        <div className="progress">
+          <div className="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow={this.state.secondsRemaining} aria-valuemin={10} aria-valuemax={20} style={{width: this.state.secondsRemaining*100/20 + "%"}}>
+            <span className="sr-only">{this.state.secondsRemaining}% Complete</span>
+          </div>
+        </div>
       </div>
     );
   }
