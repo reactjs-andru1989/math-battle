@@ -6,8 +6,14 @@ class Home extends Component {
     return(
       <div>
         <div className="text-center">
-          <Link to="/board">Play</Link>
-          <Link to="/score">Score</Link>
+          <Link to="/board">
+            <h1>Play</h1>
+            <i className="large material-icons">play_arrow</i>
+          </Link>
+          <Link to="/score">
+            <h1>Score</h1>
+            <i className="large material-icons">toc</i>
+          </Link>
         </div>
       </div>
     );
