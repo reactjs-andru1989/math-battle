@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { OPERATIONS, RESULT_TYPES } from '../actions/types';
+import {Button, Icon} from 'react-materialize';
 
-class MathOperation extends Component {
+export default class MathOperation extends Component {
   constructor(props) {
     super(props)
     this.state = ({message: '', operation: '', result: 0})
@@ -52,17 +53,17 @@ class MathOperation extends Component {
 
     return (
       <div>
-        <button onClick={this.randomOperation}>Random</button>
-        {this.state.message}
-        <button onClick={() => this.checkOperation(true)}>
-          Verdadero
-        </button>
-        <button onClick={() => this.checkOperation(false)}>
-          Falso
-        </button>
+        <h1 className="center-align">
+          {this.state.message}
+        </h1>
+        <Button floating large className='green' waves='light' onClick={() => this.checkOperation(true)}>
+          <Icon right>done</Icon>
+        </Button>
+
+        <Button floating large className='red' waves='light' onClick={() => this.checkOperation(false)}>
+          <Icon right>close</Icon>
+        </Button>
       </div>
     );
   }
 }
-
-export default MathOperation;
