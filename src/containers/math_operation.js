@@ -5,15 +5,15 @@ import {Button, Icon} from 'react-materialize';
 export default class MathOperation extends Component {
   constructor(props) {
     super(props)
-    this.state = ({message: '', operation: '', result: 0})
-    this.randomOperation = this.randomOperation.bind(this)
+    //this.state = ({message: '', operation: '', result: 0})
+    //this.randomOperation = this.randomOperation.bind(this)
   }
 
-  componentDidMount() {
+  /*componentDidMount() {
     this.randomOperation()
-  }
+  }*/
 
-  randomOperation() {
+  /*randomOperation() {
     let operation = OPERATIONS[Math.floor(Math.random() * OPERATIONS.length)];
 
     let n1 = Math.floor(Math.random() * 10) + 1
@@ -33,9 +33,9 @@ export default class MathOperation extends Component {
       operation: `${n1} + ${n2}`,
       result: result_value
     })
-  }
+  }*/
 
-  checkOperation(answer) {
+  /*checkOperation(answer) {
     let result = (eval(this.state.operation) === this.state.result)
     if (result === answer) {
       this.props.addSeconds()
@@ -44,7 +44,7 @@ export default class MathOperation extends Component {
       this.props.subtractSeconds()
     }
     this.randomOperation()
-  }
+  }*/
 
   render() {
     if (!this.state.operation) {

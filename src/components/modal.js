@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, Modal} from 'react-materialize';
+import { Button, Modal } from 'react-materialize';
 
 export default class MaterializeModal extends Component {
   constructor(props) {
@@ -7,19 +7,16 @@ export default class MaterializeModal extends Component {
   }
 
   openModal() {
-    $('#modal1').modal({
+    $('#score_modal').modal({
       dismissible: false
     });
-    $('#modal1').modal('open');
+    $('#score_modal').modal('open');
   }
 
   render() {
     return (
       <div>
-        <Modal
-          header='Game Over'
-          fixedFooter
-          id='modal1'>
+        <Modal header='Game Over' fixedFooter id='score_modal'>
           <div className="center-align">
             <h4>Score: {this.props.score}</h4>
             <div className="row">
